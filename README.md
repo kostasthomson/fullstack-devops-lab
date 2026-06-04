@@ -52,3 +52,11 @@ Current API checks:
 2. Build the Docker image in CI.
 3. Prepare release automation for container publishing.
 4. Extend to deployment once the deployment target is selected.
+
+## Container image
+
+The API container image is published to GitHub Container Registry (GHCR) from GitHub Actions.
+
+Tags:
+- `latest` for the most recent main branch build
+- commit SHA for traceable immutable builds
