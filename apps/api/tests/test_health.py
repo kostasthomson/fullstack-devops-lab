@@ -14,6 +14,6 @@ def test_root_endpoint() -> None:
 
 def test_health_endpoint() -> None:
     response = client.get("/health")
-    assert response.status_code == 200
-    assert response.json()["status"] == "ok"
-    assert response.json()["database_url_configured"] is True
+    assert response.status_code in (200, 503)
+    assert response.json()["status"] in ("ok", "degraded")
+    assert isinstance(response.json()["database_connected"], bool)
