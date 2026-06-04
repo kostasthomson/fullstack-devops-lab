@@ -36,3 +36,12 @@ A guided learning repository for building a production-style full-stack applicat
 - Clear branch names.
 - Prefer documentation with every meaningful change.
 - Keep local setup reproducible.
+
+## CI
+
+The repository uses GitHub Actions to validate the API on every push and pull request to `main`.
+
+Current API checks:
+- Ruff linting
+- Pytest test suite
+- Docker image build
