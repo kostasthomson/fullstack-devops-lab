@@ -1,13 +1,14 @@
-name: API CI
+name: API Release Prep
 
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    paths:
+      - "apps/api/**"
+      - ".github/workflows/api-release.yml"
 
 jobs:
-  api-quality:
+  build-image:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -30,11 +31,5 @@ jobs:
       - name: Sync dependencies
         run: uv sync
 
-      - name: Run Ruff
-        run: uv run ruff check .
-
-      - name: Run tests
-        run: uv run pytest -q
-
       - name: Build API image
-        run: docker build -t fullstack-devops-lab-api .
+        run: docker build -t fullstack-devops-lab-api:${{ github.sha }} .

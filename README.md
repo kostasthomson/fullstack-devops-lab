@@ -45,3 +45,10 @@ Current API checks:
 - Ruff linting
 - Pytest test suite
 - Docker image build
+
+## Pipeline stages
+
+1. Lint and test the API with GitHub Actions.
+2. Build the Docker image in CI.
+3. Prepare release automation for container publishing.
+4. Extend to deployment once the deployment target is selected.
