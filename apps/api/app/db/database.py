@@ -1,7 +1,12 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.engine import Engine
+from sqlalchemy.orm import DeclarativeBase
 
 from app.core.config import settings
+
+
+class Base(DeclarativeBase):
+    pass
 
 
 def create_db_engine() -> Engine:
